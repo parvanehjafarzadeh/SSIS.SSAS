@@ -1,0 +1,883 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/4/2022 11:27:57 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-L3J3VQ8"
+  DTS:CreatorName="DESKTOP-L3J3VQ8\PARVANE"
+  DTS:DTSID="{38D31540-11BB-43AF-9076-6874A8823C57}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1065"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{C55AD96D-5C9D-40D4-8BCA-9FFAE96007B7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Currency]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{66A2CD89-6D06-43D4-9E03-2B6F311E5F52}"
+      DTS:ObjectName="LocalHost.Currency">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Currency;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Titanic.]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4EF1DD8D-5B45-410B-ABE9-C9C4EB8AD2D6}"
+      DTS:ObjectName="Titanic.">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1065"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1256"
+          DTS:ConnectionString="G:\titanic.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:ObjectName="PassengerId"
+              DTS:DTSID="{B7408EB7-1982-4E48-9CEB-F2FCAC7D56A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="16"
+              DTS:ObjectName="Survived"
+              DTS:DTSID="{F2F2855D-7C30-41E5-907C-0D7A44AAE1A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="16"
+              DTS:ObjectName="Pclass"
+              DTS:DTSID="{42F8DDE7-4A10-43A0-92B6-D22BD5845503}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="16"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{C698DA6B-58C2-47E6-8C0D-0B91B4216BB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="Sex"
+              DTS:DTSID="{27A02DF0-D1F3-44C7-82C9-35AC4F69BACB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{350311DD-ECD6-4F4C-B29E-5E888B0760F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:ObjectName="SibSp"
+              DTS:DTSID="{179987A3-4804-45B6-8D18-F93E484EF719}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="16"
+              DTS:ObjectName="Parch"
+              DTS:DTSID="{BB92CA5C-C729-457C-B4D5-ECE44389DC0B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="16"
+              DTS:ObjectName="Ticket"
+              DTS:DTSID="{1149EF1C-5FCC-458A-9F55-258E9082DAE0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:ObjectName="Fare"
+              DTS:DTSID="{A95D7C69-818F-4EE1-B7B2-AEB6B8D2CA0B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:ObjectName="Cabin"
+              DTS:DTSID="{26D741EE-18CD-4F29-8126-86A60F15F067}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="129"
+              DTS:ObjectName="Embarked"
+              DTS:DTSID="{B5652660-9C5E-4D65-9E9E-505195171EB3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9455E216-8028-47F1-8ADE-CE23FAAEAE7E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="v">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Titanicc"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4784FA60-9CA3-42AE-ABD7-105A4C4F6A95}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Titanicc"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Titanicc\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1065"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Titanicc\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Titanic.]"
+                  connectionManagerRefId="Package.ConnectionManagers[Titanic.]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[PassengerId]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PassengerId]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[PassengerId]"
+                      name="PassengerId"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Survived]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Survived]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Survived]"
+                      name="Survived"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Pclass]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Pclass]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Pclass]"
+                      name="Pclass"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="16"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Sex]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sex]"
+                      length="50"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Sex]"
+                      name="Sex"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Age]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      length="6"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[SibSp]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SibSp]"
+                      length="4"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[SibSp]"
+                      name="SibSp"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Parch]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Parch]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Parch]"
+                      name="Parch"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Ticket]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ticket]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Ticket]"
+                      name="Ticket"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Fare]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fare]"
+                      length="18"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Fare]"
+                      name="Fare"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Cabin]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cabin]"
+                      length="8"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Cabin]"
+                      name="Cabin"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Embarked]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Embarked]"
+                      length="11"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Embarked]"
+                      name="Embarked"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PassengerId]"
+                      dataType="i2"
+                      name="PassengerId" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Survived]"
+                      dataType="i1"
+                      name="Survived" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Pclass]"
+                      dataType="i1"
+                      name="Pclass" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1256"
+                      dataType="str"
+                      length="16"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sex]"
+                      codePage="1256"
+                      dataType="str"
+                      length="50"
+                      name="Sex" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="1256"
+                      dataType="str"
+                      length="6"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SibSp]"
+                      codePage="1256"
+                      dataType="str"
+                      length="4"
+                      name="SibSp" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Parch]"
+                      dataType="i1"
+                      name="Parch" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ticket]"
+                      dataType="i1"
+                      name="Ticket" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fare]"
+                      codePage="1256"
+                      dataType="str"
+                      length="18"
+                      name="Fare" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cabin]"
+                      codePage="1256"
+                      dataType="str"
+                      length="8"
+                      name="Cabin" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Embarked]"
+                      codePage="1256"
+                      dataType="str"
+                      length="11"
+                      name="Embarked" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1256"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Titanicc\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Titanic]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1256</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Titanicc\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Currency]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Currency]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PassengerId]"
+                      cachedDataType="i2"
+                      cachedName="PassengerId"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PassengerId]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[PassengerId]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Survived]"
+                      cachedDataType="i1"
+                      cachedName="Survived"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Survived]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Survived]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pclass]"
+                      cachedDataType="i1"
+                      cachedName="Pclass"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pclass]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Pclass]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sex]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Sex"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Sex]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Age]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SibSp]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="SibSp"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SibSp]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[SibSp]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Parch]"
+                      cachedDataType="i1"
+                      cachedName="Parch"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Parch]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Parch]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ticket]"
+                      cachedDataType="i1"
+                      cachedName="Ticket"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ticket]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Ticket]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fare]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="Fare"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fare]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Fare]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cabin]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Cabin"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cabin]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Cabin]" />
+                    <inputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Embarked]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="Embarked"
+                      externalMetadataColumnId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Embarked]"
+                      lineageId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output].Columns[Embarked]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PassengerId]"
+                      dataType="i2"
+                      name="PassengerId" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Survived]"
+                      dataType="i2"
+                      name="Survived" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pclass]"
+                      dataType="i2"
+                      name="Pclass" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1256"
+                      dataType="str"
+                      length="16"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                      codePage="1256"
+                      dataType="str"
+                      length="50"
+                      name="Sex" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      codePage="1256"
+                      dataType="str"
+                      length="6"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SibSp]"
+                      codePage="1256"
+                      dataType="str"
+                      length="4"
+                      name="SibSp" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Parch]"
+                      dataType="i2"
+                      name="Parch" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ticket]"
+                      dataType="i2"
+                      name="Ticket" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fare]"
+                      codePage="1256"
+                      dataType="str"
+                      length="18"
+                      name="Fare" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cabin]"
+                      codePage="1256"
+                      dataType="str"
+                      length="8"
+                      name="Cabin" />
+                    <externalMetadataColumn
+                      refId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Embarked]"
+                      codePage="1256"
+                      dataType="str"
+                      length="11"
+                      name="Embarked" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Titanicc\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Titanicc\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Titanicc\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Titanicc\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Titanicc.Paths[Flat File Source Output]"
+              endId="Package\Titanicc\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Titanicc\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Titanicc"
+          TopLeft="286,55" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Titanicc">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Titanicc\OLE DB Destination"
+          TopLeft="281,213" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Titanicc\Flat File Source"
+          TopLeft="293,40" />
+        <EdgeLayout
+          Id="Package\Titanicc.Paths[Flat File Source Output]"
+          TopLeft="367.5,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131"
+              Start="0,0"
+              End="0,123.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Titanicc\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

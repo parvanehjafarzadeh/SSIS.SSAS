@@ -1,0 +1,1346 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2022 3:10:33 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-L3J3VQ8"
+  DTS:CreatorName="DESKTOP-L3J3VQ8\PARVANE"
+  DTS:DTSID="{FECCE240-3FC4-4A02-9BF2-2580816D571A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1065"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{E8C1C181-AD7A-405F-BE1C-08450D73EBE4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B778CAE-3BE3-4CFA-AA23-4F7427E46F10}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TestXML"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4FE9998F-196D-442D-AD31-73A8B456428D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TestXML"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TestXML\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\TestXML\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TestXML\Aggregate.Inputs[Aggregate Input 1].Columns[OrderYear]"
+                      cachedDataType="i4"
+                      cachedName="OrderYear"
+                      lineageId="Package\TestXML\Derived Column.Outputs[Derived Column Output].Columns[OrderYear]" />
+                    <inputColumn
+                      refId="Package\TestXML\Aggregate.Inputs[Aggregate Input 1].Columns[Freight]"
+                      cachedDataType="decimal"
+                      cachedName="Freight"
+                      cachedScale="10"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[Freight]" />
+                    <inputColumn
+                      refId="Package\TestXML\Aggregate.Inputs[Aggregate Input 1].Columns[OrderID]"
+                      cachedDataType="ui2"
+                      cachedName="OrderID"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\TestXML\Aggregate.Inputs[Aggregate Input 1].Columns[ShipCountryRegion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ShipCountryRegion"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderID]"
+                      dataType="ui2"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderID]"
+                      name="OrderID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\TestXML\XML Source.Outputs[orders].Columns[OrderID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[ShipCountryRegion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[ShipCountryRegion]"
+                      name="ShipCountryRegion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegion]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderYear]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderYear]"
+                      name="OrderYear">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\TestXML\Derived Column.Outputs[Derived Column Output].Columns[OrderYear]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[SumFreight]"
+                      dataType="decimal"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[SumFreight]"
+                      name="SumFreight"
+                      scale="10">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\TestXML\XML Source.Outputs[orders].Columns[Freight]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TestXML\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input].Columns[ShipVia]"
+                      cachedDataType="ui1"
+                      cachedName="ShipVia"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipVia]" />
+                    <inputColumn
+                      refId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input].Columns[ShipCountryRegion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ShipCountryRegion"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TestXML\Conditional Split.Outputs[WithShipCountryRegionName]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="WithShipCountryRegionName"
+                  synchronousInputId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegion]}) &amp;&amp; #{Package\TestXML\XML Source.Outputs[orders].Columns[ShipVia]} == 3</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(ShipCountryRegion) &amp;&amp; ShipVia == 3</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TestXML\Conditional Split.Outputs[withoutShipCountryRegionName]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="withoutShipCountryRegionName"
+                  synchronousInputId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TestXML\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TestXML\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TestXML\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\TestXML\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TestXML\Derived Column.Inputs[Derived Column Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[OrderDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TestXML\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\TestXML\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\Derived Column.Outputs[Derived Column Output].Columns[OrderYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\TestXML\Derived Column.Outputs[Derived Column Output].Columns[OrderYear]"
+                      name="OrderYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[YEAR](#{Package\TestXML\XML Source.Outputs[orders].Columns[OrderDate]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(OrderDate)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TestXML\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\TestXML\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TestXML\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TestXML\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\TestXML\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TestXML\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\TestXML\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TestXML\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\TestXML\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TestXML\Sort.Inputs[Sort Input].Columns[OrderID]"
+                      cachedDataType="ui2"
+                      cachedName="OrderID"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TestXML\Sort.Inputs[Sort Input].Columns[ShipCountryRegion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ShipCountryRegion"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[ShipCountryRegion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TestXML\Sort.Inputs[Sort Input].Columns[OrderYear]"
+                      cachedDataType="i4"
+                      cachedName="OrderYear"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderYear]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TestXML\Sort.Inputs[Sort Input].Columns[SumFreight]"
+                      cachedDataType="decimal"
+                      cachedName="SumFreight"
+                      cachedScale="10"
+                      lineageId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[SumFreight]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TestXML\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\Sort.Outputs[Sort Output].Columns[OrderID]"
+                      dataType="ui2"
+                      lineageId="Package\TestXML\Sort.Outputs[Sort Output].Columns[OrderID]"
+                      name="OrderID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TestXML\Sort.Outputs[Sort Output].Columns[ShipCountryRegion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TestXML\Sort.Outputs[Sort Output].Columns[ShipCountryRegion]"
+                      name="ShipCountryRegion"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[ShipCountryRegion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TestXML\Sort.Outputs[Sort Output].Columns[OrderYear]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\Sort.Outputs[Sort Output].Columns[OrderYear]"
+                      name="OrderYear"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[OrderYear]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TestXML\Sort.Outputs[Sort Output].Columns[SumFreight]"
+                      dataType="decimal"
+                      lineageId="Package\TestXML\Sort.Outputs[Sort Output].Columns[SumFreight]"
+                      name="SumFreight"
+                      scale="10">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\TestXML\Aggregate.Outputs[Aggregate Output 1].Columns[SumFreight]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TestXML\XML Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="XML Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData">G:\orders.xml</property>
+                <property
+                  dataType="System.String"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">G:\orders.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\TestXML\XML Source.Outputs[orders]"
+                  name="orders">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">orders</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[OrderID]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[OrderID]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[CustomerID]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[EmployeeID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[EmployeeID]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[OrderDate]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[RequiredDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[RequiredDate]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[RequiredDate]"
+                      name="RequiredDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShippedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShippedDate]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShippedDate]"
+                      name="ShippedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipVia]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipVia]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipVia]"
+                      name="ShipVia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[Freight]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[Freight]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[Freight]"
+                      name="Freight"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipName]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipName]"
+                      name="ShipName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipAddress]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipAddress]"
+                      name="ShipAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipCity]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCity]"
+                      name="ShipCity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipPostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipPostalCode]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipPostalCode]"
+                      name="ShipPostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipCountryRegion]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegion]"
+                      name="ShipCountryRegion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegionRegion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipCountryRegionRegion]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipCountryRegionRegion]"
+                      name="ShipCountryRegionRegion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipRegion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipRegion]"
+                      length="255"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders].Columns[ShipRegion]"
+                      name="ShipRegion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[OrderID]"
+                      dataType="ui2"
+                      name="OrderID">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="255"
+                      name="CustomerID">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[EmployeeID]"
+                      dataType="ui1"
+                      name="EmployeeID">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.DateTime</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[RequiredDate]"
+                      dataType="dbTimeStamp"
+                      name="RequiredDate">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.DateTime</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShippedDate]"
+                      dataType="dbTimeStamp"
+                      name="ShippedDate">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.DateTime</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipVia]"
+                      dataType="ui1"
+                      name="ShipVia">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[Freight]"
+                      dataType="decimal"
+                      name="Freight"
+                      scale="10">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Decimal</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipAddress">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipCity]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipCity">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipPostalCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipPostalCode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipCountryRegion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipCountryRegion">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipCountryRegionRegion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipCountryRegionRegion">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders].ExternalColumns[ShipRegion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ShipRegion">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TestXML\XML Source.Outputs[orders Error Output]"
+                  isErrorOut="true"
+                  name="orders Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">orders</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[OrderID]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[OrderID]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[CustomerID]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[CustomerID]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[EmployeeID]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[OrderDate]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[RequiredDate]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[RequiredDate]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[RequiredDate]"
+                      name="RequiredDate" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShippedDate]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShippedDate]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShippedDate]"
+                      name="ShippedDate" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipVia]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipVia]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipVia]"
+                      name="ShipVia" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[Freight]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[Freight]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[Freight]"
+                      name="Freight" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipName]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipName]"
+                      name="ShipName" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipAddress]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipAddress]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipAddress]"
+                      name="ShipAddress" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipCity]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipCity]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipCity]"
+                      name="ShipCity" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipPostalCode]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipPostalCode]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipPostalCode]"
+                      name="ShipPostalCode" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipCountryRegion]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipCountryRegion]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipCountryRegion]"
+                      name="ShipCountryRegion" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipCountryRegionRegion]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipCountryRegionRegion]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipCountryRegionRegion]"
+                      name="ShipCountryRegionRegion" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipRegion]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipRegion]"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ShipRegion]"
+                      name="ShipRegion" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TestXML\XML Source.Outputs[orders Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[OrderID]"
+                      dataType="nText"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[CustomerID]"
+                      dataType="nText"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[EmployeeID]"
+                      dataType="nText"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[OrderDate]"
+                      dataType="nText"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[RequiredDate]"
+                      dataType="nText"
+                      name="RequiredDate" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShippedDate]"
+                      dataType="nText"
+                      name="ShippedDate" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipVia]"
+                      dataType="nText"
+                      name="ShipVia" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[Freight]"
+                      dataType="nText"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipName]"
+                      dataType="nText"
+                      name="ShipName" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipAddress]"
+                      dataType="nText"
+                      name="ShipAddress" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipCity]"
+                      dataType="nText"
+                      name="ShipCity" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipPostalCode]"
+                      dataType="nText"
+                      name="ShipPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipCountryRegion]"
+                      dataType="nText"
+                      name="ShipCountryRegion" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipCountryRegionRegion]"
+                      dataType="nText"
+                      name="ShipCountryRegionRegion" />
+                    <externalMetadataColumn
+                      refId="Package\TestXML\XML Source.Outputs[orders Error Output].ExternalColumns[ShipRegion]"
+                      dataType="nText"
+                      name="ShipRegion" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TestXML.Paths[Aggregate Output 1]"
+              endId="Package\TestXML\Sort.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\TestXML\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\TestXML.Paths[Derived Column Output]"
+              endId="Package\TestXML\Aggregate.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\TestXML\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\TestXML.Paths[orders]"
+              endId="Package\TestXML\Conditional Split.Inputs[Conditional Split Input]"
+              name="orders"
+              startId="Package\TestXML\XML Source.Outputs[orders]" />
+            <path
+              refId="Package\TestXML.Paths[Sort Output]"
+              endId="Package\TestXML\Row Count.Inputs[Row Count Input 1]"
+              name="Sort Output"
+              startId="Package\TestXML\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\TestXML.Paths[WithShipCountryRegionName]"
+              endId="Package\TestXML\Derived Column.Inputs[Derived Column Input]"
+              name="WithShipCountryRegionName"
+              startId="Package\TestXML\Conditional Split.Outputs[WithShipCountryRegionName]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="119,42"
+          Id="Package\TestXML"
+          TopLeft="286,51" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TestXML">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\TestXML\XML Source"
+          TopLeft="293,27" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\TestXML\Conditional Split"
+          TopLeft="282,113" />
+        <EdgeLayout
+          Id="Package\TestXML.Paths[orders]"
+          TopLeft="359.75,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\TestXML\Derived Column"
+          TopLeft="290,197" />
+        <EdgeLayout
+          Id="Package\TestXML.Paths[WithShipCountryRegionName]"
+          TopLeft="363.25,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.6065234375,11.41845703125,131.213046875,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127,42"
+          Id="Package\TestXML\Aggregate"
+          TopLeft="305,275" />
+        <EdgeLayout
+          Id="Package\TestXML.Paths[Derived Column Output]"
+          TopLeft="367.75,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\TestXML\Row Count"
+          TopLeft="313,422" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\TestXML\Sort"
+          TopLeft="319,341" />
+        <EdgeLayout
+          Id="Package\TestXML.Paths[Aggregate Output 1]"
+          TopLeft="368.25,317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TestXML.Paths[Sort Output]"
+          TopLeft="368,383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,39"
+              Start="0,0"
+              End="10,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="6,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,19.5"
+                    Point2="10,19.5"
+                    Point3="10,23.5" />
+                  <mssgle:LineSegment
+                    End="10,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3,24.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
